@@ -97,7 +97,8 @@ export class UserController {
       if (result) {
         const { SECRET = 'secret' } = process.env
         const token = jwt.sign({ email: user.email, fullName: user.fullName, _id: user._id }, SECRET)
-        return response.json({ token, userId: user._id, fullName: user.fullName })
+        user.password = ''
+        return response.json({ token, user })
       }
 
       return response.status(401).json({
