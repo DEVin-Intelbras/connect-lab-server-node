@@ -344,3 +344,29 @@ Header: Bearer token
 	"__v": 0
 }
 ```
+
+### Atualizar status do dispositivo do usuário:
+
+```
+PUT: http://localhost:3030/userDevices/:id
+
+Header: Bearer token
+
+Body: {
+	"is_on": false
+}
+```
+
+**Resultado:**
+
+```
+{
+	"_id": "631b76215516db091259eaae",
+	"user": "631b6e3e61ef65fb3859152f",
+	"device": "631b2f6b6f2d2f24a7c0c949",
+	"local": "631b34696f2d2f24a7c0c960",
+	"is_on": false,
+	"room": "Quarto",
+	"__v": 0
+}
+```
