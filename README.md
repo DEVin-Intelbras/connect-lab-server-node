@@ -41,6 +41,9 @@ SECRET = mykey
 
 ```
 POST: http://localhost:3030/auth/register
+Headers: {
+	"Content-Type": "application/json"
+}
 
 Body: {
     "email": "usuario@teste.com.br",
@@ -87,6 +90,9 @@ Body: {
 
 ```
 POST: http://localhost:3030/auth/login
+Headers: {
+	"Content-Type": "application/json"
+}
 
 Body: {
 	"email": "usuario2@teste.com.br",
@@ -99,8 +105,25 @@ Body: {
 ```
 {
 	"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzdWFyaW8yQHRlc3RlLmNvbS5iciIsImZ1bGxOYW1lIjoiVGVzdGUgMiIsIl9pZCI6IjYzMWI4YzkyZTBjYWU0NDQ5OWRlMmEzNiIsImlhdCI6MTY2Mjc1ODEyOX0.t0K6YSoPbdqJRDK0XNu18DA9DrW_kvkZGxxqTZgskCw",
-	"userId": "631b8c92e0cae44499de2a36",
-	"fullName": "Teste 2"
+	"user": {
+		"_id": "63207057ab17804bf42fb1a5",
+		"fullName": "Teste",
+		"photoUrl": "",
+		"email": "teste@teste.com.br",
+		"password": "",
+		"phone": "(47) 99999-9999",
+		"userAddress": {
+		"zipCode": "00000-000",
+		"street": "Rua Testando",
+		"number": "123",
+		"neighborhood": "Bairro XYZ",
+		"city": "Florianópolis",
+		"state": "Santa Catarina",
+		"complement": "Ap 5",
+		"_id": "63207058ab17804bf42fb1a6"
+		},
+		"__v": 0
+	}
 }
 ```
 
@@ -108,8 +131,9 @@ Body: {
 
 ```
 GET: http://localhost:3030/users/:id
-
-Header: Bearer token
+Headers: {
+	"Authorization": "Bearer token"
+}
 ```
 
 **Resultado:**
@@ -140,8 +164,10 @@ Header: Bearer token
 
 ```
 POST: http://localhost:3030/users/:id
-
-Header: Bearer token
+Headers: {
+	"Authorization": "Bearer token"
+	"Content-Type": "application/json"
+}
 
 Body: {
     "email": "usuario@teste.com.br",
@@ -188,8 +214,9 @@ Body: {
 
 ```
 GET: http://localhost:3030/devices
-
-Header: Bearer token
+Headers: {
+	"Authorization": "Bearer token"
+}
 ```
 
 **Resultado:**
@@ -216,8 +243,9 @@ Header: Bearer token
 
 ```
 GET: http://localhost:3030/locals
-
-Header: Bearer token
+Headers: {
+	"Authorization": "Bearer token"
+}
 ```
 
 **Resultado:**
@@ -243,8 +271,10 @@ Header: Bearer token
 
 ```
 POST: http://localhost:3030/userDevices
-
-Header: Bearer token
+Headers: {
+	"Authorization": "Bearer token"
+	"Content-Type": "application/json"
+}
 
 Body:  {
       "user": "631b6e3e61ef65fb3859152f",
@@ -273,8 +303,9 @@ Body:  {
 
 ```
 GET: http://localhost:3030/userDevices/user/:id
-
-Header: Bearer token
+Headers: {
+	"Authorization": "Bearer token"
+}
 ```
 
 **Resultado:**
@@ -312,8 +343,9 @@ Header: Bearer token
 
 ```
 GET: http://localhost:3030/userDevices/:id
-
-Header: Bearer token
+Headers: {
+	"Authorization": "Bearer token"
+}
 ```
 
 **Resultado:**
@@ -349,8 +381,10 @@ Header: Bearer token
 
 ```
 PUT: http://localhost:3030/userDevices/:id
-
-Header: Bearer token
+Headers: {
+	"Authorization": "Bearer token"
+	"Content-Type": "application/json"
+}
 
 Body: {
 	"is_on": false
