@@ -404,3 +404,22 @@ Body: {
 	"__v": 0
 }
 ```
+
+### Deletar um dispositivo do usuário:
+
+```
+DELETE: http://localhost:3030/userDevices/:id
+Headers: {
+	"Authorization": "Bearer token"
+	"Content-Type": "application/json"
+}
+```
+
+**Resultado:**
+
+```
+{
+	"acknowledged": true,
+	"deletedCount": 1
+}
+```
