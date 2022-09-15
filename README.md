@@ -163,7 +163,7 @@ Headers: {
 ### Atualizar um usuário:
 
 ```
-POST: http://localhost:3030/users/:id
+PUT: http://localhost:3030/users/:id
 Headers: {
 	"Authorization": "Bearer token"
 	"Content-Type": "application/json"
