@@ -65,9 +65,13 @@ export class UserController {
         })
       }
 
-      request.body.password = !!request.body.password?.lenght
-        ? await bcrypt.hash(request.body.password, 10)
-        : user.password
+      let password = user.password
+      if (!!request.body.password.length) {
+        const newPass = await bcrypt.hash(request.body.password, 10)
+        password = newPass
+      }
+
+      request.body.password = password
 
       const newUSer = await UserSchema.findOneAndUpdate({ _id: request.params.id }, request.body, {
         new: true,
