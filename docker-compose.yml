@@ -1,0 +1,31 @@
+version: '3.8'
+services:
+  mongo_db:
+    container_name: mongo_connectlab
+    restart: always
+    build: ./database
+    ports:
+      - '27017:27017'
+    volumes:
+      - ./database/data:/data/db
+    environment:
+      - MONGO_INITDB_DATABASE=connectlab
+    networks:
+      - connectnet
+
+  backend:
+    container_name: back_connectlab
+    image: 'michaelnsc/connectlab-service:1.2'
+    ports:
+      - '3030:3030'
+    environment:
+      DB_URI_CONNECTION: mongodb://mongo_connectlab:27017/connectlab
+      PORT: 3030
+      SECRET: thesecret
+    depends_on:
+      - mongo_db
+    networks:
+      - connectnet
+
+networks:
+  connectnet:

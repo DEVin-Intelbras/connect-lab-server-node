@@ -1,0 +1,25 @@
+FROM node:16.13.1-alpine
+
+WORKDIR ./app
+
+COPY package.json .
+
+RUN npm install
+
+COPY . .
+
+ARG DB_URI_CONNECTION
+ARG SECRET
+ARG PORT
+
+ENV DB_URI_CONNECTION=${DB_URI_CONNECTION}
+ENV SECRET=${SECRET}
+ENV PORT=${PORT}
+
+EXPOSE ${PORT}
+
+RUN npm run build
+
+EXPOSE 3030
+
+CMD ["npm", "start"]

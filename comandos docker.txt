@@ -1,0 +1,2 @@
+docker exec -it mongo_connectlab bash
+db.auth("adminUser","12345678")

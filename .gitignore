@@ -139,3 +139,4 @@ build
 # Database
 
 database.sqlite
+/database/data/*
