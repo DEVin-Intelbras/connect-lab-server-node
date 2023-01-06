@@ -287,3 +287,23 @@ db.locals.insertMany([
     description: 'Fábrica',
   },
 ])
+
+db.users.drop()
+
+db.users.insertOne({
+  _id: '63b839abda7bf8c6bc7a236b',
+  fullName: 'Admin',
+  photoUrl: 'https://via.placeholder.com/150',
+  email: 'admin@teste.com',
+  password: '$2b$10$6/6gha8/yWactSDq9FasTuPUv149JIx09J5Qf.i7SJTZFBjFnEAsO',
+  phone: '(99) 99999-9999',
+  userAddress: {
+    zipCode: '00000-000',
+    street: 'Rua Teste',
+    number: '1',
+    neighborhood: 'Bairro Teste',
+    city: 'São Paulo',
+    state: 'São Paulo',
+    complement: 'Comp. Teste',
+  },
+})
