@@ -3,7 +3,7 @@ services:
   mongo_db:
     container_name: mongo_connectlab
     restart: always
-    build: ./database
+    image: michaelnsc/mongo-connectlab:1.0.0
     ports:
       - '27017:27017'
     volumes:
